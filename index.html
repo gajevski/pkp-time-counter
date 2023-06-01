@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kolejowe minutki</title>
+    <style>
+      .date-picker {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Oblicz se minutki byczku</h1>
+
+    <div class="date-picker">
+      <label for="start-date">Data początkowa:</label>
+      <input type="datetime-local" id="start-date" />
+    </div>
+
+    <div class="date-picker">
+      <label for="end-date">Data końcowa:</label>
+      <input type="datetime-local" id="end-date" />
+    </div>
+
+    <button onclick="calculateDifference()">Oblicz</button>
+
+    <p id="result"></p>
+
+    <script>
+      function calculateDifference() {
+        var startDate = new Date(document.getElementById('start-date').value);
+        var endDate = new Date(document.getElementById('end-date').value);
+
+        var difference = (endDate - startDate) / 1000 / 60;
+
+        document.getElementById(
+          'result'
+        ).textContent = `Minęło ${difference} minut ⌚`;
+      }
+    </script>
+  </body>
+</html>
